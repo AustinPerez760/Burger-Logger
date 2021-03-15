@@ -1,0 +1,49 @@
+<h1 class="text-center">Eat-The-Burgers!</h1>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <img src="/assets/img/burger-image.jpg" class="rounded mx-auto d-block" </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Burgers to be devoured</h2>
+
+                <ul class="list-group">
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    {{> burgers/burger-block devoured=false}}
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col">
+                <h2>Burgers already devoured</h2>
+
+                <ul class="list-group">
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    {{> burgers/burger-block-2 devoured=true}}
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4">
+                <h2>Add a Burger</h2>
+                <form class="create-form">
+                    <div class="form-group">
+                        <label for="burgername">Burger:</label>
+                        <input type="text" id="burgername" name="burger_name">
+                        <button type="submit" class="btn btn-primary">Add Burger</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
